@@ -1,0 +1,98 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --panel: #ffffff;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --line: #dbe3ef;
+  --brand: #005b9a;
+  --brand-soft: #e6f2fb;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: radial-gradient(circle at top, #fefefe 0, var(--bg) 45%);
+  color: var(--ink);
+}
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(8, 36, 70, 0.08);
+}
+
+.header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.title {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.3;
+}
+
+.desc {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.item:last-child { border-bottom: none; }
+
+.item a {
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.item a:hover { text-decoration: underline; }
+
+.meta {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.article-wrap {
+  padding: 18px 24px 30px;
+}
+
+.tag {
+  display: inline-block;
+  margin: 10px 0 16px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  font-size: 12px;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--brand);
+  text-decoration: none;
+}
+
+.back:hover { text-decoration: underline; }
