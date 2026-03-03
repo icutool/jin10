@@ -343,6 +343,10 @@ def extract_content_html(detail_html):
     node = soup.select_one(ARTICLE_SELECTOR)
     if not node:
         return FALLBACK_CONTENT_HTML
+
+    for hidden in node.select("p.brokers_hidden"):
+        hidden.decompose()
+
     return str(node)
 
 
