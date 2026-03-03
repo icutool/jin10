@@ -11,6 +11,11 @@ from urllib.parse import urljoin
 from zoneinfo import ZoneInfo
 
 BASE_URL = "https://goodsfu.10jqka.com.cn/qhpl_list/"
+LIST_PAGE_URLS = (
+    BASE_URL,
+    f"{BASE_URL}index_2.shtml",
+    f"{BASE_URL}index_3.shtml",
+)
 ARTICLE_SELECTOR = "div.news-content.article-content"
 HISTORY_DIR = Path("article")
 RAW_DIR = Path("raw")
@@ -612,12 +617,13 @@ def render_site(history):
     )
 
 
-def parse_list_items(list_html):
+def parse_list_items(list_html, page_tag=""):
     from bs4 import BeautifulSoup
 
+    prefix = f"{page_tag} " if page_tag else ""
     soup = BeautifulSoup(list_html, "html.parser")
     items = soup.select("div.list-con ul li")
-    log(f"List items found: {len(items)}")
+    log(f"{prefix}List items found: {len(items)}")
     parsed = []
 
     for index, li in enumerate(items, start=1):
@@ -625,7 +631,7 @@ def parse_list_items(list_html):
         time_tag = li.select_one("span.arc-title span")
 
         if not title_tag or not time_tag:
-            log(f"Skip malformed list item #{index}")
+            log(f"{prefix}Skip malformed list item #{index}")
             continue
 
         title = (title_tag.get("title") or title_tag.get_text(strip=True) or "").strip()
@@ -633,7 +639,7 @@ def parse_list_items(list_html):
         time_text = time_tag.get_text(strip=True)
 
         if not title or not href:
-            log(f"Skip empty list item #{index}")
+            log(f"{prefix}Skip empty list item #{index}")
             continue
 
         url = urljoin(BASE_URL, href)
@@ -643,52 +649,70 @@ def parse_list_items(list_html):
 
 
 def crawl_new_articles(history):
-    list_resp = fetch_with_retry(BASE_URL)
-    list_items = parse_list_items(list_resp.text)
-
     existing_keys = {article_key(item) for item in history}
     new_articles = []
 
-    for item in list_items:
-        key = article_key(item)
-        if key in existing_keys:
-            continue
-
-        title = item["title"]
-        url = item["url"]
-        time_text = item["time"]
+    for page_index, list_url in enumerate(LIST_PAGE_URLS, start=1):
+        page_tag = f"[P{page_index}]"
+        page_new = 0
+        page_skipped_existing = 0
 
         try:
-            detail_resp = fetch_with_retry(url)
-            slug = make_slug(title, url)
-            updated_at = datetime.now(SHANGHAI_TZ).isoformat()
-            date_key = infer_article_date({"url": url, "updated_at": updated_at})
-            raw_path = RAW_DIR / date_key / f"{slug}.html"
-            raw_path.parent.mkdir(parents=True, exist_ok=True)
-            raw_path.write_text(detail_resp.text, encoding="utf-8")
-            content_html = extract_content_html(detail_resp.text)
-
-            article = {
-                "title": title,
-                "time": time_text,
-                "url": url,
-                "slug": slug,
-                "date": date_key,
-                "raw_file": raw_path.as_posix(),
-                "site_file": make_site_file(date_key, slug),
-                "content_html": content_html,
-                "updated_at": updated_at,
-            }
-            new_articles.append(article)
-            existing_keys.add(key)
-
-            log(f"Saved raw and extracted content: {title}")
-            time.sleep(REQUEST_INTERVAL_SECONDS)
-
+            log(f"{page_tag} Fetch list page: {list_url}")
+            list_resp = fetch_with_retry(list_url)
+            list_items = parse_list_items(list_resp.text, page_tag=page_tag)
         except Exception:
-            log(f"Failed to process article: {title}")
+            log(f"{page_tag} Failed to fetch list page: {list_url}")
             traceback.print_exc()
             continue
+
+        for item in list_items:
+            key = article_key(item)
+            if key in existing_keys:
+                page_skipped_existing += 1
+                continue
+
+            title = item["title"]
+            url = item["url"]
+            time_text = item["time"]
+
+            try:
+                detail_resp = fetch_with_retry(url)
+                slug = make_slug(title, url)
+                updated_at = datetime.now(SHANGHAI_TZ).isoformat()
+                date_key = infer_article_date({"url": url, "updated_at": updated_at})
+                raw_path = RAW_DIR / date_key / f"{slug}.html"
+                raw_path.parent.mkdir(parents=True, exist_ok=True)
+                raw_path.write_text(detail_resp.text, encoding="utf-8")
+                content_html = extract_content_html(detail_resp.text)
+
+                article = {
+                    "title": title,
+                    "time": time_text,
+                    "url": url,
+                    "slug": slug,
+                    "date": date_key,
+                    "raw_file": raw_path.as_posix(),
+                    "site_file": make_site_file(date_key, slug),
+                    "content_html": content_html,
+                    "updated_at": updated_at,
+                }
+                new_articles.append(article)
+                existing_keys.add(key)
+                page_new += 1
+
+                log(f"{page_tag} Saved raw and extracted content: {title}")
+                time.sleep(REQUEST_INTERVAL_SECONDS)
+
+            except Exception:
+                log(f"{page_tag} Failed to process article: {title}")
+                traceback.print_exc()
+                continue
+
+        log(
+            f"{page_tag} Page done. total={len(list_items)}, "
+            f"new={page_new}, skipped_existing={page_skipped_existing}"
+        )
 
     return new_articles
 
