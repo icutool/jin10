@@ -29,9 +29,9 @@ HEADERS = {
     "Referer": "https://goodsfu.10jqka.com.cn/",
 }
 
-TIMEOUT = 60
-RETRY_COUNT = 3
-RETRY_DELAY_SECONDS = 3
+TIMEOUT = 30
+RETRY_COUNT = 5
+RETRY_DELAY_SECONDS = 1
 REQUEST_INTERVAL_SECONDS = 2
 SHANGHAI_TZ = ZoneInfo("Asia/Shanghai")
 
