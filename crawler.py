@@ -4,14 +4,15 @@ import json
 import re
 import time
 import traceback
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 from pathlib import PurePosixPath
 from urllib.parse import urljoin
+from zoneinfo import ZoneInfo
 
 BASE_URL = "https://goodsfu.10jqka.com.cn/qhpl_list/"
 ARTICLE_SELECTOR = "div.news-content.article-content"
-HISTORY_FILE = Path("article.json")
+HISTORY_DIR = Path("article")
 RAW_DIR = Path("raw")
 SITE_DIR = Path("docs")
 SITE_ARTICLE_DIR = SITE_DIR / "articles"
@@ -27,6 +28,7 @@ TIMEOUT = 60
 RETRY_COUNT = 3
 RETRY_DELAY_SECONDS = 3
 REQUEST_INTERVAL_SECONDS = 2
+SHANGHAI_TZ = ZoneInfo("Asia/Shanghai")
 
 FALLBACK_CONTENT_HTML = (
     '<div class="news-content article-content">'
@@ -190,6 +192,7 @@ def log(message):
 
 
 def ensure_dirs():
+    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     SITE_ARTICLE_DIR.mkdir(parents=True, exist_ok=True)
     SITE_DATE_JSON_DIR.mkdir(parents=True, exist_ok=True)
@@ -215,11 +218,14 @@ def infer_article_date(article):
     updated_at = (article.get("updated_at") or "").strip()
     if updated_at:
         try:
-            return datetime.fromisoformat(updated_at).strftime("%Y%m%d")
+            parsed_updated_at = datetime.fromisoformat(updated_at.replace("Z", "+00:00"))
+            if parsed_updated_at.tzinfo is None:
+                parsed_updated_at = parsed_updated_at.replace(tzinfo=SHANGHAI_TZ)
+            return parsed_updated_at.astimezone(SHANGHAI_TZ).strftime("%Y%m%d")
         except ValueError:
             pass
 
-    return datetime.now(timezone.utc).strftime("%Y%m%d")
+    return datetime.now(SHANGHAI_TZ).strftime("%Y%m%d")
 
 
 def make_raw_file(date_key, slug):
@@ -245,28 +251,65 @@ def article_key(article):
     return f"title_time::{title}::{time_text}"
 
 
+def is_valid_date_key(date_key):
+    return bool(re.fullmatch(r"20\d{6}", str(date_key).strip()))
+
+
 def load_history():
-    if not HISTORY_FILE.exists():
-        log("article.json not found, start with empty history.")
+    combined = []
+
+    if HISTORY_DIR.exists():
+        for json_file in sorted(HISTORY_DIR.glob("*.json"), reverse=True):
+            if not is_valid_date_key(json_file.stem):
+                log(f"Skip non-date history file: {json_file.name}")
+                continue
+
+            try:
+                data = json.loads(json_file.read_text(encoding="utf-8"))
+                if isinstance(data, list):
+                    combined.extend(data)
+                else:
+                    log(f"{json_file.as_posix()} is not a list, skip.")
+            except Exception:
+                log(f"Failed to read {json_file.as_posix()}, skip.")
+                traceback.print_exc()
+
+    if not combined:
+        log("No history data found, start with empty history.")
         return []
 
-    try:
-        data = json.loads(HISTORY_FILE.read_text(encoding="utf-8"))
-        if isinstance(data, list):
-            return data
-        log("article.json is not a list, fallback to empty history.")
-        return []
-    except Exception:
-        log("Failed to read article.json, fallback to empty history.")
-        traceback.print_exc()
-        return []
+    deduped = []
+    seen_keys = set()
+    for item in combined:
+        key = article_key(item)
+        if key in seen_keys:
+            continue
+        seen_keys.add(key)
+        deduped.append(item)
+
+    return deduped
 
 
 def save_history(data):
-    HISTORY_FILE.write_text(
-        json.dumps(data, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+    grouped = {}
+    for article in data:
+        date_key = (article.get("date") or "").strip() or infer_article_date(article)
+        if not is_valid_date_key(date_key):
+            date_key = infer_article_date(article)
+        grouped.setdefault(date_key, []).append(article)
+
+    valid_dates = set()
+    for date_key in sorted(grouped.keys(), reverse=True):
+        valid_dates.add(date_key)
+        (HISTORY_DIR / f"{date_key}.json").write_text(
+            json.dumps(grouped[date_key], ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+
+    for old_file in HISTORY_DIR.glob("*.json"):
+        if is_valid_date_key(old_file.stem) and old_file.stem not in valid_dates:
+            old_file.unlink()
 
 
 def fetch_with_retry(url):
@@ -472,7 +515,7 @@ def build_index_page():
 
 def ensure_history_shape(history):
     normalized = []
-    now_iso = datetime.now(timezone.utc).isoformat()
+    now_iso = datetime.now(SHANGHAI_TZ).isoformat()
 
     for item in history:
         title = (item.get("title") or "").strip()
@@ -618,7 +661,7 @@ def crawl_new_articles(history):
         try:
             detail_resp = fetch_with_retry(url)
             slug = make_slug(title, url)
-            updated_at = datetime.now(timezone.utc).isoformat()
+            updated_at = datetime.now(SHANGHAI_TZ).isoformat()
             date_key = infer_article_date({"url": url, "updated_at": updated_at})
             raw_path = RAW_DIR / date_key / f"{slug}.html"
             raw_path.parent.mkdir(parents=True, exist_ok=True)
