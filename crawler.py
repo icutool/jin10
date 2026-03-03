@@ -8,15 +8,14 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urljoin
 
-import requests
-from bs4 import BeautifulSoup
-
 BASE_URL = "https://goodsfu.10jqka.com.cn/qhpl_list/"
 ARTICLE_SELECTOR = "div.news-content.article-content"
 HISTORY_FILE = Path("article.json")
 RAW_DIR = Path("raw")
 SITE_DIR = Path("docs")
 SITE_ARTICLE_DIR = SITE_DIR / "articles"
+SITE_DATE_JSON_DIR = SITE_DIR / "articleJson"
+DATE_HAS_FILE = SITE_DIR / "dateHas.json"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
@@ -30,7 +29,7 @@ REQUEST_INTERVAL_SECONDS = 2
 
 FALLBACK_CONTENT_HTML = (
     '<div class="news-content article-content">'
-    "<p>未提取到正文容器，详情请查看 raw 中保存的原始页面。</p>"
+    "<p>未提取到正文容器，详情请查看 raw 目录中的原始页面。</p>"
     "</div>"
 )
 
@@ -84,6 +83,34 @@ body {
   color: var(--muted);
 }
 
+.toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.toolbar label {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.toolbar select {
+  min-width: 200px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+}
+
+.status {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .list {
   list-style: none;
   margin: 0;
@@ -111,8 +138,29 @@ body {
   font-size: 14px;
 }
 
+.empty,
+.error {
+  padding: 20px 24px;
+  color: var(--muted);
+}
+
+.error { color: #b91c1c; }
+
 .article-wrap {
   padding: 18px 24px 30px;
+  overflow: hidden;
+}
+
+.article-wrap table {
+  max-width: 100%;
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+}
+
+.article-wrap img {
+  max-width: 100%;
+  height: auto;
 }
 
 .tag {
@@ -143,6 +191,7 @@ def log(message):
 def ensure_dirs():
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     SITE_ARTICLE_DIR.mkdir(parents=True, exist_ok=True)
+    SITE_DATE_JSON_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def safe_filename(title):
@@ -154,6 +203,22 @@ def safe_filename(title):
 def make_slug(title, url):
     digest = hashlib.sha1(url.encode("utf-8")).hexdigest()[:10]
     return f"{safe_filename(title)}_{digest}"
+
+
+def infer_article_date(article):
+    url = (article.get("url") or "").strip()
+    url_match = re.search(r"/(20\d{6})/", url)
+    if url_match:
+        return url_match.group(1)
+
+    updated_at = (article.get("updated_at") or "").strip()
+    if updated_at:
+        try:
+            return datetime.fromisoformat(updated_at).strftime("%Y%m%d")
+        except ValueError:
+            pass
+
+    return datetime.now(timezone.utc).strftime("%Y%m%d")
 
 
 def article_key(article):
@@ -191,6 +256,8 @@ def save_history(data):
 
 
 def fetch_with_retry(url):
+    import requests
+
     for attempt in range(1, RETRY_COUNT + 1):
         try:
             log(f"Request: {url} ({attempt}/{RETRY_COUNT})")
@@ -208,6 +275,8 @@ def fetch_with_retry(url):
 
 
 def extract_content_html(detail_html):
+    from bs4 import BeautifulSoup
+
     soup = BeautifulSoup(detail_html, "html.parser")
     node = soup.select_one(ARTICLE_SELECTOR)
     if not node:
@@ -249,25 +318,8 @@ def build_article_page(article):
 """
 
 
-def build_index_page(history):
-    cards = []
-    for article in history:
-        title = html.escape(article.get("title", ""))
-        time_text = html.escape(article.get("time", ""))
-        article_link = html.escape(article.get("site_file", "index.html"))
-        source_url = html.escape(article.get("url", ""))
-
-        cards.append(
-            f"""<li class="item">
-  <a href="{article_link}">{title}</a>
-  <p class="meta">时间：{time_text}</p>
-  <p class="meta">来源：<a href="{source_url}" target="_blank" rel="noopener noreferrer">{source_url}</a></p>
-</li>"""
-        )
-
-    cards_html = "\n".join(cards) if cards else '<li class="item">暂无文章数据</li>'
-
-    return f"""<!doctype html>
+def build_index_page():
+    return """<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -280,13 +332,122 @@ def build_index_page(history):
     <section class="panel">
       <header class="header">
         <h1 class="title">期货观点文章汇总</h1>
-        <p class="desc">自动抓取 + 自动更新静态站点</p>
+        <p class="desc">按日期浏览，内容由 articleJson/{date}.json 动态渲染。</p>
+        <div class="toolbar">
+          <label for="dateSelect">选择日期</label>
+          <select id="dateSelect" disabled></select>
+        </div>
+        <p class="status" id="statusText">正在加载日期列表...</p>
       </header>
-      <ul class="list">
-        {cards_html}
-      </ul>
+      <ul class="list" id="articleList"></ul>
     </section>
   </main>
+
+  <script>
+    const dateSelectEl = document.getElementById("dateSelect");
+    const listEl = document.getElementById("articleList");
+    const statusEl = document.getElementById("statusText");
+
+    const escapeHtml = (text) => {
+      return String(text ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    };
+
+    const prettyDate = (dateKey) => {
+      if (!/^\\d{8}$/.test(dateKey)) {
+        return dateKey;
+      }
+      return `${dateKey.slice(0, 4)}-${dateKey.slice(4, 6)}-${dateKey.slice(6, 8)}`;
+    };
+
+    const renderArticles = (articles) => {
+      if (!Array.isArray(articles) || articles.length === 0) {
+        listEl.innerHTML = '<li class="empty">该日期暂无文章数据。</li>';
+        return;
+      }
+
+      const html = articles.map((article) => {
+        const title = escapeHtml(article.title || "");
+        const timeText = escapeHtml(article.time || "");
+        const sourceUrl = escapeHtml(article.url || "");
+        const siteFile = escapeHtml(article.site_file || "#");
+
+        return `
+          <li class="item">
+            <a href="${siteFile}">${title}</a>
+            <p class="meta">时间：${timeText}</p>
+            <p class="meta">来源：<a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">${sourceUrl}</a></p>
+          </li>
+        `;
+      }).join("");
+
+      listEl.innerHTML = html;
+    };
+
+    const loadArticlesByDate = async (dateKey) => {
+      try {
+        statusEl.textContent = `正在加载 ${prettyDate(dateKey)} 的文章...`;
+        const response = await fetch(`articleJson/${dateKey}.json`);
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const payload = await response.json();
+        const articles = Array.isArray(payload?.articles) ? payload.articles : [];
+        renderArticles(articles);
+        statusEl.textContent = `${prettyDate(dateKey)} 共 ${articles.length} 篇`;
+      } catch (error) {
+        listEl.innerHTML = '<li class="error">加载失败，请稍后刷新重试。</li>';
+        statusEl.textContent = "文章加载失败";
+      }
+    };
+
+    const init = async () => {
+      try {
+        const response = await fetch("dateHas.json");
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const dates = await response.json();
+        if (!Array.isArray(dates) || dates.length === 0) {
+          dateSelectEl.disabled = true;
+          statusEl.textContent = "暂无可选日期";
+          listEl.innerHTML = '<li class="empty">暂无文章数据。</li>';
+          return;
+        }
+
+        const searchDate = new URLSearchParams(window.location.search).get("date");
+        const activeDate = dates.includes(searchDate) ? searchDate : dates[0];
+
+        dateSelectEl.innerHTML = dates.map((dateKey) => {
+          const selected = dateKey === activeDate ? "selected" : "";
+          return `<option value="${escapeHtml(dateKey)}" ${selected}>${escapeHtml(prettyDate(dateKey))}</option>`;
+        }).join("");
+
+        dateSelectEl.disabled = false;
+        dateSelectEl.addEventListener("change", (event) => {
+          const dateKey = event.target.value;
+          const nextUrl = new URL(window.location.href);
+          nextUrl.searchParams.set("date", dateKey);
+          window.history.replaceState({}, "", nextUrl);
+          loadArticlesByDate(dateKey);
+        });
+
+        await loadArticlesByDate(activeDate);
+      } catch (error) {
+        dateSelectEl.disabled = true;
+        statusEl.textContent = "日期列表加载失败";
+        listEl.innerHTML = '<li class="error">无法读取 dateHas.json，请检查构建输出。</li>';
+      }
+    };
+
+    init();
+  </script>
 </body>
 </html>
 """
@@ -308,6 +469,10 @@ def ensure_history_shape(history):
         site_file = item.get("site_file") or f"articles/{slug}.html"
         raw_file = item.get("raw_file") or ""
         content_html = item.get("content_html") or FALLBACK_CONTENT_HTML
+        updated_at = item.get("updated_at") or now_iso
+        date_key = (item.get("date") or "").strip() or infer_article_date(
+            {"url": url, "updated_at": updated_at}
+        )
 
         normalized.append(
             {
@@ -315,27 +480,74 @@ def ensure_history_shape(history):
                 "time": time_text,
                 "url": url,
                 "slug": slug,
+                "date": date_key,
                 "raw_file": raw_file,
                 "site_file": site_file,
                 "content_html": content_html,
-                "updated_at": item.get("updated_at") or now_iso,
+                "updated_at": updated_at,
             }
         )
 
     return normalized
 
 
+def build_date_payloads(history):
+    grouped = {}
+    for article in history:
+        date_key = (article.get("date") or "").strip() or infer_article_date(article)
+        grouped.setdefault(date_key, []).append(
+            {
+                "title": article.get("title", ""),
+                "time": article.get("time", ""),
+                "url": article.get("url", ""),
+                "site_file": article.get("site_file", ""),
+                "updated_at": article.get("updated_at", ""),
+            }
+        )
+
+    date_keys = sorted(grouped.keys(), reverse=True)
+    return date_keys, grouped
+
+
 def render_site(history):
+    SITE_DIR.mkdir(parents=True, exist_ok=True)
+    SITE_DATE_JSON_DIR.mkdir(parents=True, exist_ok=True)
+
     (SITE_DIR / "styles.css").write_text(STYLES_CSS, encoding="utf-8")
-    (SITE_DIR / "index.html").write_text(build_index_page(history), encoding="utf-8")
+    (SITE_DIR / "index.html").write_text(build_index_page(), encoding="utf-8")
 
     for article in history:
         page_path = SITE_DIR / article["site_file"]
         page_path.parent.mkdir(parents=True, exist_ok=True)
         page_path.write_text(build_article_page(article), encoding="utf-8")
 
+    date_keys, grouped = build_date_payloads(history)
+    valid_dates = set(date_keys)
+
+    for old_file in SITE_DATE_JSON_DIR.glob("*.json"):
+        if old_file.stem not in valid_dates:
+            old_file.unlink()
+
+    for date_key in date_keys:
+        payload = {
+            "date": date_key,
+            "count": len(grouped[date_key]),
+            "articles": grouped[date_key],
+        }
+        (SITE_DATE_JSON_DIR / f"{date_key}.json").write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+
+    DATE_HAS_FILE.write_text(
+        json.dumps(date_keys, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
 
 def parse_list_items(list_html):
+    from bs4 import BeautifulSoup
+
     soup = BeautifulSoup(list_html, "html.parser")
     items = soup.select("div.list-con ul li")
     log(f"List items found: {len(items)}")
@@ -385,16 +597,18 @@ def crawl_new_articles(history):
             raw_path = RAW_DIR / f"{slug}.html"
             raw_path.write_text(detail_resp.text, encoding="utf-8")
             content_html = extract_content_html(detail_resp.text)
+            updated_at = datetime.now(timezone.utc).isoformat()
 
             article = {
                 "title": title,
                 "time": time_text,
                 "url": url,
                 "slug": slug,
+                "date": infer_article_date({"url": url, "updated_at": updated_at}),
                 "raw_file": raw_path.as_posix(),
                 "site_file": f"articles/{slug}.html",
                 "content_html": content_html,
-                "updated_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": updated_at,
             }
             new_articles.append(article)
             existing_keys.add(key)

@@ -47,6 +47,34 @@ body {
   color: var(--muted);
 }
 
+.toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.toolbar label {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.toolbar select {
+  min-width: 200px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+}
+
+.status {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .list {
   list-style: none;
   margin: 0;
@@ -74,8 +102,29 @@ body {
   font-size: 14px;
 }
 
+.empty,
+.error {
+  padding: 20px 24px;
+  color: var(--muted);
+}
+
+.error { color: #b91c1c; }
+
 .article-wrap {
   padding: 18px 24px 30px;
+  overflow: hidden;
+}
+
+.article-wrap table {
+  max-width: 100%;
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+}
+
+.article-wrap img {
+  max-width: 100%;
+  height: auto;
 }
 
 .tag {
