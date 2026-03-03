@@ -6,6 +6,7 @@ import time
 import traceback
 from datetime import datetime, timezone
 from pathlib import Path
+from pathlib import PurePosixPath
 from urllib.parse import urljoin
 
 BASE_URL = "https://goodsfu.10jqka.com.cn/qhpl_list/"
@@ -221,6 +222,19 @@ def infer_article_date(article):
     return datetime.now(timezone.utc).strftime("%Y%m%d")
 
 
+def make_raw_file(date_key, slug):
+    return (RAW_DIR / date_key / f"{slug}.html").as_posix()
+
+
+def make_site_file(date_key, slug):
+    return f"articles/{date_key}/{slug}.html"
+
+
+def compute_rel_prefix(site_file):
+    parent_depth = len(PurePosixPath(site_file).parent.parts)
+    return "../" * parent_depth
+
+
 def article_key(article):
     url = (article.get("url") or "").strip()
     if url:
@@ -289,6 +303,9 @@ def build_article_page(article):
     time_text = html.escape(article.get("time", ""))
     source_url = html.escape(article.get("url", ""))
     content_html = article.get("content_html") or FALLBACK_CONTENT_HTML
+    rel_prefix = compute_rel_prefix(article.get("site_file", "articles/index.html"))
+    styles_href = f"{rel_prefix}styles.css"
+    back_href = f"{rel_prefix}index.html"
 
     return f"""<!doctype html>
 <html lang="zh-CN">
@@ -296,7 +313,7 @@ def build_article_page(article):
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title}</title>
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="{styles_href}">
 </head>
 <body>
   <main class="wrap">
@@ -309,7 +326,7 @@ def build_article_page(article):
       </header>
       <article class="article-wrap">
         {content_html}
-        <a class="back" href="../index.html">返回文章列表</a>
+        <a class="back" href="{back_href}">返回文章列表</a>
       </article>
     </section>
   </main>
@@ -466,13 +483,20 @@ def ensure_history_shape(history):
             slug_seed = url or f"{title}-{time_text}-{len(normalized)}"
             slug = make_slug(title or "article", slug_seed)
 
-        site_file = item.get("site_file") or f"articles/{slug}.html"
-        raw_file = item.get("raw_file") or ""
         content_html = item.get("content_html") or FALLBACK_CONTENT_HTML
         updated_at = item.get("updated_at") or now_iso
         date_key = (item.get("date") or "").strip() or infer_article_date(
             {"url": url, "updated_at": updated_at}
         )
+        expected_site_file = make_site_file(date_key, slug)
+        expected_raw_file = make_raw_file(date_key, slug)
+
+        site_file = (item.get("site_file") or "").strip()
+        raw_file = (item.get("raw_file") or "").strip()
+        if (not site_file) or (not site_file.startswith(f"articles/{date_key}/")):
+            site_file = expected_site_file
+        if (not raw_file) or (not raw_file.startswith(f"raw/{date_key}/")):
+            raw_file = expected_raw_file
 
         normalized.append(
             {
@@ -594,19 +618,21 @@ def crawl_new_articles(history):
         try:
             detail_resp = fetch_with_retry(url)
             slug = make_slug(title, url)
-            raw_path = RAW_DIR / f"{slug}.html"
+            updated_at = datetime.now(timezone.utc).isoformat()
+            date_key = infer_article_date({"url": url, "updated_at": updated_at})
+            raw_path = RAW_DIR / date_key / f"{slug}.html"
+            raw_path.parent.mkdir(parents=True, exist_ok=True)
             raw_path.write_text(detail_resp.text, encoding="utf-8")
             content_html = extract_content_html(detail_resp.text)
-            updated_at = datetime.now(timezone.utc).isoformat()
 
             article = {
                 "title": title,
                 "time": time_text,
                 "url": url,
                 "slug": slug,
-                "date": infer_article_date({"url": url, "updated_at": updated_at}),
+                "date": date_key,
                 "raw_file": raw_path.as_posix(),
-                "site_file": f"articles/{slug}.html",
+                "site_file": make_site_file(date_key, slug),
                 "content_html": content_html,
                 "updated_at": updated_at,
             }
