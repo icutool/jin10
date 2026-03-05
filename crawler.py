@@ -9,6 +9,7 @@ from pathlib import Path
 from pathlib import PurePosixPath
 from urllib.parse import urljoin
 from zoneinfo import ZoneInfo
+import concurrent.futures
 
 BASE_URL = "https://goodsfu.10jqka.com.cn/qhpl_list/"
 LIST_PAGE_URLS = (
@@ -660,71 +661,71 @@ def parse_list_items(list_html, page_tag=""):
     return parsed
 
 
+def process_article(item):
+    title = item["title"]
+    url = item["url"]
+    time_text = item["time"]
+
+    try:
+        detail_resp = fetch_with_retry(url)
+        slug = make_slug(title, url)
+        updated_at = datetime.now(SHANGHAI_TZ).isoformat()
+        date_key = infer_article_date({"url": url, "updated_at": updated_at})
+        raw_path = RAW_DIR / date_key / f"{slug}.html"
+        raw_path.parent.mkdir(parents=True, exist_ok=True)
+        raw_path.write_text(detail_resp.text, encoding="utf-8")
+        content_html = extract_content_html(detail_resp.text)
+
+        article = {
+            "title": title,
+            "time": time_text,
+            "url": url,
+            "slug": slug,
+            "date": date_key,
+            "raw_file": raw_path.as_posix(),
+            "site_file": make_site_file(date_key, slug),
+            "content_html": content_html,
+            "updated_at": updated_at,
+        }
+        log(f"[Concurrent] Saved raw and extracted content: {title}")
+        return article
+    except Exception:
+        log(f"[Concurrent] Failed to process article: {title}")
+        traceback.print_exc()
+        return None
+
+
 def crawl_new_articles(history):
     existing_keys = {article_key(item) for item in history}
-    new_articles = []
+    all_items = []
 
     for page_index, list_url in enumerate(LIST_PAGE_URLS, start=1):
         page_tag = f"[P{page_index}]"
-        page_new = 0
-        page_skipped_existing = 0
 
         try:
             log(f"{page_tag} Fetch list page: {list_url}")
             list_resp = fetch_with_retry(list_url)
             list_items = parse_list_items(list_resp.text, page_tag=page_tag)
+            all_items.extend(list_items)
         except Exception:
             log(f"{page_tag} Failed to fetch list page: {list_url}")
             traceback.print_exc()
             continue
 
-        for item in list_items:
-            key = article_key(item)
-            if key in existing_keys:
-                page_skipped_existing += 1
-                continue
+    # 过滤新文章
+    new_items = [item for item in all_items if article_key(item) not in existing_keys]
 
-            title = item["title"]
-            url = item["url"]
-            time_text = item["time"]
+    log(f"Total new articles to process: {len(new_items)}")
 
-            try:
-                detail_resp = fetch_with_retry(url)
-                slug = make_slug(title, url)
-                updated_at = datetime.now(SHANGHAI_TZ).isoformat()
-                date_key = infer_article_date({"url": url, "updated_at": updated_at})
-                raw_path = RAW_DIR / date_key / f"{slug}.html"
-                raw_path.parent.mkdir(parents=True, exist_ok=True)
-                raw_path.write_text(detail_resp.text, encoding="utf-8")
-                content_html = extract_content_html(detail_resp.text)
-
-                article = {
-                    "title": title,
-                    "time": time_text,
-                    "url": url,
-                    "slug": slug,
-                    "date": date_key,
-                    "raw_file": raw_path.as_posix(),
-                    "site_file": make_site_file(date_key, slug),
-                    "content_html": content_html,
-                    "updated_at": updated_at,
-                }
-                new_articles.append(article)
-                existing_keys.add(key)
-                page_new += 1
-
-                log(f"{page_tag} Saved raw and extracted content: {title}")
-                time.sleep(REQUEST_INTERVAL_SECONDS)
-
-            except Exception:
-                log(f"{page_tag} Failed to process article: {title}")
-                traceback.print_exc()
-                continue
-
-        log(
-            f"{page_tag} Page done. total={len(list_items)}, "
-            f"new={page_new}, skipped_existing={page_skipped_existing}"
-        )
+    # 并发处理
+    new_articles = []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+        futures = [executor.submit(process_article, item) for item in new_items]
+        for future in concurrent.futures.as_completed(futures):
+            result = future.result()
+            if result:
+                new_articles.append(result)
+                existing_keys.add(article_key(result))
 
     return new_articles
 
