@@ -218,7 +218,11 @@ def infer_article_date(article):
     url = (article.get("url") or "").strip()
     url_match = re.search(r"/(20\d{6})/", url)
     if url_match:
-        return url_match.group(1)
+        date_str = url_match.group(1)
+        # 如果年份是2025年，改为2026年
+        if date_str.startswith("2025"):
+            date_str = "2026" + date_str[4:]
+        return date_str
 
     updated_at = (article.get("updated_at") or "").strip()
     if updated_at:
@@ -230,7 +234,11 @@ def infer_article_date(article):
         except ValueError:
             pass
 
-    return datetime.now(SHANGHAI_TZ).strftime("%Y%m%d")
+    current_date = datetime.now(SHANGHAI_TZ).strftime("%Y%m%d")
+    # 如果年份是2025年，改为2026年
+    if current_date.startswith("2025"):
+        current_date = "2026" + current_date[4:]
+    return current_date
 
 
 def make_raw_file(date_key, slug):
