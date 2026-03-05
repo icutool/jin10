@@ -6,6 +6,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: crawl-job
+  cancel-in-progress: false
+  
 jobs:
   crawl:
     runs-on: ubuntu-latest
