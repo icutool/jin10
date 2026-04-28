@@ -1,7 +1,133 @@
 {
   "date": "20260428",
-  "count": 79,
+  "count": 97,
   "articles": [
+    {
+      "title": "【观点】南华期货：纯苯、苯乙烯双去库",
+      "time": "04月28日 09:48",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331781.shtml",
+      "site_file": "articles/20260428/【观点】南华期货：纯苯、苯乙烯双去库_4ef7577729.html",
+      "updated_at": "2026-04-28T09:50:27.285067+08:00"
+    },
+    {
+      "title": "【观点】南华期货：塑料短期维持高位震荡格局",
+      "time": "04月28日 09:47",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331758.shtml",
+      "site_file": "articles/20260428/【观点】南华期货：塑料短期维持高位震荡格局_ccf28019ce.html",
+      "updated_at": "2026-04-28T09:50:27.299504+08:00"
+    },
+    {
+      "title": "【观点】南华期货：油脂短期上方空间有限",
+      "time": "04月28日 09:48",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331768.shtml",
+      "site_file": "articles/20260428/【观点】南华期货：油脂短期上方空间有限_b34a9962fd.html",
+      "updated_at": "2026-04-28T09:50:27.330072+08:00"
+    },
+    {
+      "title": "【观点】南华期货：镍-不锈钢多方共振",
+      "time": "04月28日 09:48",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331763.shtml",
+      "site_file": "articles/20260428/【观点】南华期货：镍-不锈钢多方共振_30ef873acf.html",
+      "updated_at": "2026-04-28T09:50:27.342814+08:00"
+    },
+    {
+      "title": "【观点】南华期货：PP丙烯驱动转弱",
+      "time": "04月28日 09:48",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331766.shtml",
+      "site_file": "articles/20260428/【观点】南华期货：PP丙烯驱动转弱_e1ede04594.html",
+      "updated_at": "2026-04-28T09:50:27.352529+08:00"
+    },
+    {
+      "title": "【观点】南华期货：集运欧线震荡偏强",
+      "time": "04月28日 09:47",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331754.shtml",
+      "site_file": "articles/20260428/【观点】南华期货：集运欧线震荡偏强_318c47514b.html",
+      "updated_at": "2026-04-28T09:50:28.185569+08:00"
+    },
+    {
+      "title": "【观点】南华期货：油料现货企稳",
+      "time": "04月28日 09:46",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331706.shtml",
+      "site_file": "articles/20260428/【观点】南华期货：油料现货企稳_ce80e9eeaa.html",
+      "updated_at": "2026-04-28T09:50:28.200102+08:00"
+    },
+    {
+      "title": "【观点】南华期货：燃料油节前轻仓",
+      "time": "04月28日 09:46",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331717.shtml",
+      "site_file": "articles/20260428/【观点】南华期货：燃料油节前轻仓_7875921ed0.html",
+      "updated_at": "2026-04-28T09:50:28.213664+08:00"
+    },
+    {
+      "title": "【观点】南华期货：碳酸锂注意节前避险情绪",
+      "time": "04月28日 09:46",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331709.shtml",
+      "site_file": "articles/20260428/【观点】南华期货：碳酸锂注意节前避险情绪_98d152e9df.html",
+      "updated_at": "2026-04-28T09:50:28.295048+08:00"
+    },
+    {
+      "title": "【观点】南华期货：豆一震荡偏弱",
+      "time": "04月28日 09:47",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331752.shtml",
+      "site_file": "articles/20260428/【观点】南华期货：豆一震荡偏弱_216e57cb20.html",
+      "updated_at": "2026-04-28T09:50:28.540860+08:00"
+    },
+    {
+      "title": "【观点】南华期货：工业硅&多晶硅技术面与基本面双弱",
+      "time": "04月28日 09:45",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331691.shtml",
+      "site_file": "articles/20260428/【观点】南华期货：工业硅&多晶硅技术面与基本面双弱_80734de6e9.html",
+      "updated_at": "2026-04-28T09:50:29.068095+08:00"
+    },
+    {
+      "title": "【观点】南华期货：锌多头获利了结",
+      "time": "04月28日 09:46",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331696.shtml",
+      "site_file": "articles/20260428/【观点】南华期货：锌多头获利了结_84ca5cd29f.html",
+      "updated_at": "2026-04-28T09:50:29.096672+08:00"
+    },
+    {
+      "title": "【观点】南华期货：铜交投清淡，高位震荡",
+      "time": "04月28日 09:45",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331692.shtml",
+      "site_file": "articles/20260428/【观点】南华期货：铜交投清淡，高位震荡_a28ae72606.html",
+      "updated_at": "2026-04-28T09:50:29.110106+08:00"
+    },
+    {
+      "title": "【观点】南华期货：锡板块走弱带动弱现实交易",
+      "time": "04月28日 09:45",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331686.shtml",
+      "site_file": "articles/20260428/【观点】南华期货：锡板块走弱带动弱现实交易_7fac2edff2.html",
+      "updated_at": "2026-04-28T09:50:29.140128+08:00"
+    },
+    {
+      "title": "【观点】南华期货：纸浆-胶版纸现货行情相对维稳",
+      "time": "04月28日 09:45",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331684.shtml",
+      "site_file": "articles/20260428/【观点】南华期货：纸浆-胶版纸现货行情相对维稳_a2e04df5a6.html",
+      "updated_at": "2026-04-28T09:50:29.316015+08:00"
+    },
+    {
+      "title": "【观点】国都期货：生猪底部或显现",
+      "time": "04月28日 09:45",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331678.shtml",
+      "site_file": "articles/20260428/【观点】国都期货：生猪底部或显现_f026979759.html",
+      "updated_at": "2026-04-28T09:50:29.858170+08:00"
+    },
+    {
+      "title": "【观点】国都期货：棉花建议价格回调后做多",
+      "time": "04月28日 09:38",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331407.shtml",
+      "site_file": "articles/20260428/【观点】国都期货：棉花建议价格回调后做多_5c0040de80.html",
+      "updated_at": "2026-04-28T09:50:30.160106+08:00"
+    },
+    {
+      "title": "【观点】南华期货：国债关注企稳信号",
+      "time": "04月28日 09:45",
+      "url": "http://goodsfu.10jqka.com.cn/20260428/c676331672.shtml",
+      "site_file": "articles/20260428/【观点】南华期货：国债关注企稳信号_a40e979eae.html",
+      "updated_at": "2026-04-28T09:50:30.261133+08:00"
+    },
     {
       "title": "【观点】南华期货：股指短期预计震荡偏强",
       "time": "04月28日 09:44",
