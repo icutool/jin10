@@ -1,7 +1,126 @@
 {
   "date": "20260616",
-  "count": 117,
+  "count": 134,
   "articles": [
+    {
+      "title": "【观点】广州期货：锌底部有支撑",
+      "time": "06月16日 10:29",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490808.shtml",
+      "site_file": "articles/20260616/【观点】广州期货：锌底部有支撑_fe49944462.html",
+      "updated_at": "2026-06-16T10:30:29.380511+08:00"
+    },
+    {
+      "title": "【观点】南华期货：碳酸锂震荡为序",
+      "time": "06月16日 10:29",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490791.shtml",
+      "site_file": "articles/20260616/【观点】南华期货：碳酸锂震荡为序_446facba56.html",
+      "updated_at": "2026-06-16T10:30:29.463810+08:00"
+    },
+    {
+      "title": "【观点】南华期货：锡宏观利多加持",
+      "time": "06月16日 10:29",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490805.shtml",
+      "site_file": "articles/20260616/【观点】南华期货：锡宏观利多加持_0e6359bba3.html",
+      "updated_at": "2026-06-16T10:30:29.478623+08:00"
+    },
+    {
+      "title": "【观点】广州期货：乙二醇低库存支撑期价",
+      "time": "06月16日 10:29",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490795.shtml",
+      "site_file": "articles/20260616/【观点】广州期货：乙二醇低库存支撑期价_dadd7085ae.html",
+      "updated_at": "2026-06-16T10:30:29.528198+08:00"
+    },
+    {
+      "title": "【观点】南华期货：豆一震荡格局延续",
+      "time": "06月16日 10:28",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490784.shtml",
+      "site_file": "articles/20260616/【观点】南华期货：豆一震荡格局延续_89f0857ce0.html",
+      "updated_at": "2026-06-16T10:30:30.323784+08:00"
+    },
+    {
+      "title": "【观点】南华期货：原油关注协议落地及执行情况",
+      "time": "06月16日 10:28",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490772.shtml",
+      "site_file": "articles/20260616/【观点】南华期货：原油关注协议落地及执行情况_c3ea0b933c.html",
+      "updated_at": "2026-06-16T10:30:30.343007+08:00"
+    },
+    {
+      "title": "【观点】南华期货：燃料油大幅下挫",
+      "time": "06月16日 10:28",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490782.shtml",
+      "site_file": "articles/20260616/【观点】南华期货：燃料油大幅下挫_d10292d0a4.html",
+      "updated_at": "2026-06-16T10:30:30.357865+08:00"
+    },
+    {
+      "title": "【观点】广州期货：工业硅高位库存压力与底部成本支撑交织",
+      "time": "06月16日 10:28",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490763.shtml",
+      "site_file": "articles/20260616/【观点】广州期货：工业硅高位库存压力与底部成本支撑交织_02c9766d8e.html",
+      "updated_at": "2026-06-16T10:30:30.360830+08:00"
+    },
+    {
+      "title": "【观点】南华期货：玉米&淀粉波动扩大",
+      "time": "06月16日 10:27",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490758.shtml",
+      "site_file": "articles/20260616/【观点】南华期货：玉米&淀粉波动扩大_bbef8bb764.html",
+      "updated_at": "2026-06-16T10:30:31.165766+08:00"
+    },
+    {
+      "title": "【观点】广州期货：棉花巴西出口同比大增",
+      "time": "06月16日 10:26",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490731.shtml",
+      "site_file": "articles/20260616/【观点】广州期货：棉花巴西出口同比大增_7e2068df40.html",
+      "updated_at": "2026-06-16T10:30:31.333458+08:00"
+    },
+    {
+      "title": "【观点】南华期货：锌利空计价",
+      "time": "06月16日 10:27",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490761.shtml",
+      "site_file": "articles/20260616/【观点】南华期货：锌利空计价_738ade1db2.html",
+      "updated_at": "2026-06-16T10:30:31.336016+08:00"
+    },
+    {
+      "title": "【观点】南华期货：镍-不锈钢日内金属整体修复",
+      "time": "06月16日 10:26",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490732.shtml",
+      "site_file": "articles/20260616/【观点】南华期货：镍-不锈钢日内金属整体修复_8d35aeb6eb.html",
+      "updated_at": "2026-06-16T10:30:31.390814+08:00"
+    },
+    {
+      "title": "【观点】广州期货：半导体指数继续强势，提振锡价反弹",
+      "time": "06月16日 10:26",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490727.shtml",
+      "site_file": "articles/20260616/【观点】广州期货：半导体指数继续强势，提振锡价反弹_dfcf203b2c.html",
+      "updated_at": "2026-06-16T10:30:32.000788+08:00"
+    },
+    {
+      "title": "【观点】南华期货：工业硅&多晶硅上方压力仍存",
+      "time": "06月16日 10:26",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490725.shtml",
+      "site_file": "articles/20260616/【观点】南华期货：工业硅&多晶硅上方压力仍存_7c112bcea3.html",
+      "updated_at": "2026-06-16T10:30:32.184376+08:00"
+    },
+    {
+      "title": "【观点】南华期货：铜关注期限结构",
+      "time": "06月16日 10:25",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490706.shtml",
+      "site_file": "articles/20260616/【观点】南华期货：铜关注期限结构_77f809fd0d.html",
+      "updated_at": "2026-06-16T10:30:32.198011+08:00"
+    },
+    {
+      "title": "【观点】南华期货：国债预期反转驱动修复行情",
+      "time": "06月16日 10:26",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490726.shtml",
+      "site_file": "articles/20260616/【观点】南华期货：国债预期反转驱动修复行情_edf977f08e.html",
+      "updated_at": "2026-06-16T10:30:32.211772+08:00"
+    },
+    {
+      "title": "【观点】广州期货：油脂库存去化",
+      "time": "06月16日 10:29",
+      "url": "http://goodsfu.10jqka.com.cn/20260616/c677490812.shtml",
+      "site_file": "articles/20260616/【观点】广州期货：油脂库存去化_fa2ca5a15a.html",
+      "updated_at": "2026-06-16T10:30:50.845262+08:00"
+    },
     {
       "title": "【观点】南华期货：生猪:近弱远强",
       "time": "06月16日 10:22",
