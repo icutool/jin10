@@ -1,7 +1,91 @@
 {
   "date": "20260623",
-  "count": 61,
+  "count": 73,
   "articles": [
+    {
+      "title": "【观点】南华期货：纯苯-苯乙烯进口量大幅削减",
+      "time": "06月23日 09:48",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677637182.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：纯苯-苯乙烯进口量大幅削减_284cd992ed.html",
+      "updated_at": "2026-06-23T09:50:33.663707+08:00"
+    },
+    {
+      "title": "【观点】南华期货：豆一窄幅震荡",
+      "time": "06月23日 09:47",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677637135.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：豆一窄幅震荡_f58d665206.html",
+      "updated_at": "2026-06-23T09:50:33.690341+08:00"
+    },
+    {
+      "title": "【观点】南华期货：工业硅&多晶硅价格震荡整理",
+      "time": "06月23日 09:47",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677637167.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：工业硅&多晶硅价格震荡整理_170eaf04c6.html",
+      "updated_at": "2026-06-23T09:50:33.705751+08:00"
+    },
+    {
+      "title": "【观点】南华期货：玉米&淀粉盘面保持震荡",
+      "time": "06月23日 09:49",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677637527.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：玉米&淀粉盘面保持震荡_59b8ab7487.html",
+      "updated_at": "2026-06-23T09:50:33.719373+08:00"
+    },
+    {
+      "title": "【观点】南华期货：铜弱势震荡",
+      "time": "06月23日 09:49",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677637532.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：铜弱势震荡_1a3b1b78a6.html",
+      "updated_at": "2026-06-23T09:50:33.837967+08:00"
+    },
+    {
+      "title": "【观点】南华期货：油脂走势分化",
+      "time": "06月23日 09:46",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677637129.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：油脂走势分化_5a3c5a4d3c.html",
+      "updated_at": "2026-06-23T09:50:34.477102+08:00"
+    },
+    {
+      "title": "【观点】南华期货：塑料跟随成本端波动",
+      "time": "06月23日 09:45",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677637093.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：塑料跟随成本端波动_cd33b818b8.html",
+      "updated_at": "2026-06-23T09:50:34.505404+08:00"
+    },
+    {
+      "title": "【观点】南华期货：燃料油继续承压",
+      "time": "06月23日 09:45",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677637003.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：燃料油继续承压_f640254045.html",
+      "updated_at": "2026-06-23T09:50:34.543504+08:00"
+    },
+    {
+      "title": "【观点】南华期货：红枣压力仍存",
+      "time": "06月23日 09:44",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636987.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：红枣压力仍存_c057085b13.html",
+      "updated_at": "2026-06-23T09:50:34.591318+08:00"
+    },
+    {
+      "title": "【观点】南华期货：黄金&白银低位运行",
+      "time": "06月23日 09:47",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677637131.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：黄金&白银低位运行_c11f9d8c78.html",
+      "updated_at": "2026-06-23T09:50:34.709428+08:00"
+    },
+    {
+      "title": "【观点】南华期货：硅铁&硅锰需求走弱",
+      "time": "06月23日 09:44",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636983.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：硅铁&硅锰需求走弱_b8e5a6bb14.html",
+      "updated_at": "2026-06-23T09:50:35.309646+08:00"
+    },
+    {
+      "title": "【观点】南华期货：螺纹&热卷成本支撑减弱",
+      "time": "06月23日 09:44",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636986.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：螺纹&热卷成本支撑减弱_5d37b6b1a1.html",
+      "updated_at": "2026-06-23T09:50:35.342850+08:00"
+    },
     {
       "title": "【观点】正信期货研究院：纯碱价格跌至低位",
       "time": "06月23日 09:42",
