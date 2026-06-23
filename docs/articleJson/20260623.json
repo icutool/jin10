@@ -1,7 +1,119 @@
 {
   "date": "20260623",
-  "count": 45,
+  "count": 61,
   "articles": [
+    {
+      "title": "【观点】正信期货研究院：纯碱价格跌至低位",
+      "time": "06月23日 09:42",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636922.shtml",
+      "site_file": "articles/20260623/【观点】正信期货研究院：纯碱价格跌至低位_9d692a0146.html",
+      "updated_at": "2026-06-23T09:45:27.612418+08:00"
+    },
+    {
+      "title": "【观点】光大期货：铁矿石价格短期预计将延续震荡偏弱走势",
+      "time": "06月23日 09:42",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636928.shtml",
+      "site_file": "articles/20260623/【观点】光大期货：铁矿石价格短期预计将延续震荡偏弱走势_0f27d1eab2.html",
+      "updated_at": "2026-06-23T09:45:27.635445+08:00"
+    },
+    {
+      "title": "【观点】南华期货：棉花关注印度季风进程",
+      "time": "06月23日 09:42",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636932.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：棉花关注印度季风进程_7d38e99645.html",
+      "updated_at": "2026-06-23T09:45:27.660845+08:00"
+    },
+    {
+      "title": "【观点】南华期货：原油美伊谈判向好",
+      "time": "06月23日 09:42",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636931.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：原油美伊谈判向好_902b25a21c.html",
+      "updated_at": "2026-06-23T09:45:27.735329+08:00"
+    },
+    {
+      "title": "【观点】光大期货：玻璃需求疲软",
+      "time": "06月23日 09:41",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636908.shtml",
+      "site_file": "articles/20260623/【观点】光大期货：玻璃需求疲软_99c51b1fe2.html",
+      "updated_at": "2026-06-23T09:45:28.472429+08:00"
+    },
+    {
+      "title": "【观点】光大期货：低硫燃料油供应支撑",
+      "time": "06月23日 09:41",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636902.shtml",
+      "site_file": "articles/20260623/【观点】光大期货：低硫燃料油供应支撑_b4c8e24917.html",
+      "updated_at": "2026-06-23T09:45:28.541378+08:00"
+    },
+    {
+      "title": "【观点】正信期货研究院：玻璃市场震荡调整",
+      "time": "06月23日 09:41",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636905.shtml",
+      "site_file": "articles/20260623/【观点】正信期货研究院：玻璃市场震荡调整_9e57bec4a4.html",
+      "updated_at": "2026-06-23T09:45:28.555943+08:00"
+    },
+    {
+      "title": "【观点】光大期货：焦煤短期盘面震荡运行",
+      "time": "06月23日 09:42",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636916.shtml",
+      "site_file": "articles/20260623/【观点】光大期货：焦煤短期盘面震荡运行_e5fd793ebe.html",
+      "updated_at": "2026-06-23T09:45:28.626026+08:00"
+    },
+    {
+      "title": "【观点】南华期货：油料继续累库",
+      "time": "06月23日 09:41",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636895.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：油料继续累库_8301e6a3a6.html",
+      "updated_at": "2026-06-23T09:45:29.324219+08:00"
+    },
+    {
+      "title": "【观点】申银万国：橡胶供需博弈",
+      "time": "06月23日 09:41",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636888.shtml",
+      "site_file": "articles/20260623/【观点】申银万国：橡胶供需博弈_5d92f80d4c.html",
+      "updated_at": "2026-06-23T09:45:29.377428+08:00"
+    },
+    {
+      "title": "【观点】南华期货：生猪震荡回调",
+      "time": "06月23日 09:41",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636877.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：生猪震荡回调_a9e73a6e52.html",
+      "updated_at": "2026-06-23T09:45:29.526559+08:00"
+    },
+    {
+      "title": "【观点】南华期货：花生油厂收购减少",
+      "time": "06月23日 09:41",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636885.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：花生油厂收购减少_2b6ff20d87.html",
+      "updated_at": "2026-06-23T09:45:29.764663+08:00"
+    },
+    {
+      "title": "【观点】南华期货：橡胶供需承压",
+      "time": "06月23日 09:40",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636864.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：橡胶供需承压_564a5ce89c.html",
+      "updated_at": "2026-06-23T09:45:30.557437+08:00"
+    },
+    {
+      "title": "【观点】南华期货：焦煤八轮提涨落地",
+      "time": "06月23日 09:40",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636876.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：焦煤八轮提涨落地_6da19eecc7.html",
+      "updated_at": "2026-06-23T09:45:31.392861+08:00"
+    },
+    {
+      "title": "【观点】南华期货：PVC驱动偏空",
+      "time": "06月23日 09:43",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636965.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：PVC驱动偏空_8cd65cb42e.html",
+      "updated_at": "2026-06-23T09:45:59.337345+08:00"
+    },
+    {
+      "title": "【观点】南华期货：苹果放量下跌",
+      "time": "06月23日 09:40",
+      "url": "http://goodsfu.10jqka.com.cn/20260623/c677636874.shtml",
+      "site_file": "articles/20260623/【观点】南华期货：苹果放量下跌_f4322a0612.html",
+      "updated_at": "2026-06-23T09:46:01.496267+08:00"
+    },
     {
       "title": "【观点】南华期货：原木库存进一步去化",
       "time": "06月23日 09:39",
