@@ -1,7 +1,161 @@
 {
   "date": "20260625",
-  "count": 69,
+  "count": 91,
   "articles": [
+    {
+      "title": "【观点】南华期货：锌偏弱运行",
+      "time": "06月25日 09:54",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701340.shtml",
+      "site_file": "articles/20260625/【观点】南华期货：锌偏弱运行_6ee0f68fb3.html",
+      "updated_at": "2026-06-25T09:55:24.905548+08:00"
+    },
+    {
+      "title": "【观点】南华期货：塑料下跌趋势延续",
+      "time": "06月25日 09:54",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701360.shtml",
+      "site_file": "articles/20260625/【观点】南华期货：塑料下跌趋势延续_daf62b05ac.html",
+      "updated_at": "2026-06-25T09:55:24.960000+08:00"
+    },
+    {
+      "title": "【观点】南华期货：铁矿石整数关口",
+      "time": "06月25日 09:54",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701338.shtml",
+      "site_file": "articles/20260625/【观点】南华期货：铁矿石整数关口_929eafc5bc.html",
+      "updated_at": "2026-06-25T09:55:24.973156+08:00"
+    },
+    {
+      "title": "【观点】南华期货：美光财报超预期，铜价依旧谨慎",
+      "time": "06月25日 09:54",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701370.shtml",
+      "site_file": "articles/20260625/【观点】南华期货：美光财报超预期，铜价依旧谨慎_a0045db3fb.html",
+      "updated_at": "2026-06-25T09:55:24.985543+08:00"
+    },
+    {
+      "title": "【观点】广州期货：宏观施压叠加外盘压力，锌价弱势运行",
+      "time": "06月25日 09:54",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701359.shtml",
+      "site_file": "articles/20260625/【观点】广州期货：宏观施压叠加外盘压力，锌价弱势运行_371bddff96.html",
+      "updated_at": "2026-06-25T09:55:25.000059+08:00"
+    },
+    {
+      "title": "【观点】南华期货：镍-不锈钢印尼配额或修订至3.6亿吨",
+      "time": "06月25日 09:53",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701337.shtml",
+      "site_file": "articles/20260625/【观点】南华期货：镍-不锈钢印尼配额或修订至3.6亿吨_876658fcd6.html",
+      "updated_at": "2026-06-25T09:55:25.689958+08:00"
+    },
+    {
+      "title": "【观点】南华期货：白糖郑糖延续弱势",
+      "time": "06月25日 09:52",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701309.shtml",
+      "site_file": "articles/20260625/【观点】南华期货：白糖郑糖延续弱势_c51a5b0537.html",
+      "updated_at": "2026-06-25T09:55:25.795849+08:00"
+    },
+    {
+      "title": "【观点】南华期货：锡跟随板块持续偏弱",
+      "time": "06月25日 09:53",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701329.shtml",
+      "site_file": "articles/20260625/【观点】南华期货：锡跟随板块持续偏弱_39f543308a.html",
+      "updated_at": "2026-06-25T09:55:25.821402+08:00"
+    },
+    {
+      "title": "【观点】国都期货：热卷价格短期承压",
+      "time": "06月25日 09:53",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701328.shtml",
+      "site_file": "articles/20260625/【观点】国都期货：热卷价格短期承压_96f5c0c2b4.html",
+      "updated_at": "2026-06-25T09:55:25.833531+08:00"
+    },
+    {
+      "title": "【观点】国都期货：棉花短期市场氛围偏空",
+      "time": "06月25日 09:52",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701306.shtml",
+      "site_file": "articles/20260625/【观点】国都期货：棉花短期市场氛围偏空_5e8cc11d2d.html",
+      "updated_at": "2026-06-25T09:55:25.845457+08:00"
+    },
+    {
+      "title": "【观点】国都期货：螺纹钢震荡偏弱",
+      "time": "06月25日 09:52",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701297.shtml",
+      "site_file": "articles/20260625/【观点】国都期货：螺纹钢震荡偏弱_ca5163198a.html",
+      "updated_at": "2026-06-25T09:55:26.572008+08:00"
+    },
+    {
+      "title": "【观点】国都期货：天然橡胶长线看涨",
+      "time": "06月25日 09:52",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701300.shtml",
+      "site_file": "articles/20260625/【观点】国都期货：天然橡胶长线看涨_9e8edfb273.html",
+      "updated_at": "2026-06-25T09:55:26.594848+08:00"
+    },
+    {
+      "title": "【观点】南华期货：铝产业链短期承压震荡偏弱",
+      "time": "06月25日 09:52",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701288.shtml",
+      "site_file": "articles/20260625/【观点】南华期货：铝产业链短期承压震荡偏弱_1e2ae21453.html",
+      "updated_at": "2026-06-25T09:55:26.633123+08:00"
+    },
+    {
+      "title": "【观点】南华期货：油脂利好有限维持偏弱震荡",
+      "time": "06月25日 09:52",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701281.shtml",
+      "site_file": "articles/20260625/【观点】南华期货：油脂利好有限维持偏弱震荡_53dc8418a0.html",
+      "updated_at": "2026-06-25T09:55:26.647960+08:00"
+    },
+    {
+      "title": "【观点】南华期货：PVC低位震荡",
+      "time": "06月25日 09:52",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701286.shtml",
+      "site_file": "articles/20260625/【观点】南华期货：PVC低位震荡_5f3d01039e.html",
+      "updated_at": "2026-06-25T09:55:26.660795+08:00"
+    },
+    {
+      "title": "【观点】国都期货：豆粕短期震荡盘整",
+      "time": "06月25日 09:52",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701280.shtml",
+      "site_file": "articles/20260625/【观点】国都期货：豆粕短期震荡盘整_019c6e9428.html",
+      "updated_at": "2026-06-25T09:55:27.365875+08:00"
+    },
+    {
+      "title": "【观点】南华期货：硅铁&硅锰承压寻底",
+      "time": "06月25日 09:51",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701277.shtml",
+      "site_file": "articles/20260625/【观点】南华期货：硅铁&硅锰承压寻底_d979712629.html",
+      "updated_at": "2026-06-25T09:55:27.378363+08:00"
+    },
+    {
+      "title": "【观点】国都期货：玉米供需博弈激烈",
+      "time": "06月25日 09:51",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701272.shtml",
+      "site_file": "articles/20260625/【观点】国都期货：玉米供需博弈激烈_c5c79cf946.html",
+      "updated_at": "2026-06-25T09:55:27.391097+08:00"
+    },
+    {
+      "title": "【观点】国都期货：沪银短期内偏弱震荡",
+      "time": "06月25日 09:51",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701218.shtml",
+      "site_file": "articles/20260625/【观点】国都期货：沪银短期内偏弱震荡_ee112cb788.html",
+      "updated_at": "2026-06-25T09:55:27.403779+08:00"
+    },
+    {
+      "title": "【观点】南华期货：玉米&淀粉盘面价格保持震荡",
+      "time": "06月25日 09:51",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701268.shtml",
+      "site_file": "articles/20260625/【观点】南华期货：玉米&淀粉盘面价格保持震荡_9b9ac5f7cc.html",
+      "updated_at": "2026-06-25T09:55:27.456192+08:00"
+    },
+    {
+      "title": "【观点】南华期货：纯苯-苯乙烯跟随成本端下跌",
+      "time": "06月25日 09:50",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701213.shtml",
+      "site_file": "articles/20260625/【观点】南华期货：纯苯-苯乙烯跟随成本端下跌_0db703fed9.html",
+      "updated_at": "2026-06-25T09:55:28.131829+08:00"
+    },
+    {
+      "title": "【观点】南华期货：鸡蛋期现分化",
+      "time": "06月25日 09:50",
+      "url": "http://goodsfu.10jqka.com.cn/20260625/c677701214.shtml",
+      "site_file": "articles/20260625/【观点】南华期货：鸡蛋期现分化_3830ec17d7.html",
+      "updated_at": "2026-06-25T09:55:28.169427+08:00"
+    },
     {
       "title": "【观点】国都期货：铁矿石或迎阶段性支撑",
       "time": "06月25日 09:49",
