@@ -1,7 +1,357 @@
 {
   "date": "20260702",
-  "count": 107,
+  "count": 157,
   "articles": [
+    {
+      "title": "【研报观点】7月2日国债期货最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897235.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日国债期货最新观点汇总_0fd8394d11.html",
+      "updated_at": "2026-07-02T15:50:28.689772+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日沪镍最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897237.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日沪镍最新观点汇总_50ea5039e3.html",
+      "updated_at": "2026-07-02T15:50:28.707151+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日菜油最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897238.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日菜油最新观点汇总_2655babf93.html",
+      "updated_at": "2026-07-02T15:50:28.727238+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日锰硅最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897234.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日锰硅最新观点汇总_95b8c79a69.html",
+      "updated_at": "2026-07-02T15:50:28.744785+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日硅铁最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897236.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日硅铁最新观点汇总_0acf7cb34d.html",
+      "updated_at": "2026-07-02T15:50:28.764191+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日螺纹钢最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897233.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日螺纹钢最新观点汇总_a3070cbdc7.html",
+      "updated_at": "2026-07-02T15:50:29.602138+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日PVC最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897231.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日PVC最新观点汇总_5263283fee.html",
+      "updated_at": "2026-07-02T15:50:29.630452+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日铁矿石最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897230.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日铁矿石最新观点汇总_012c201744.html",
+      "updated_at": "2026-07-02T15:50:29.647510+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日沪铜最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897232.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日沪铜最新观点汇总_d7fb675943.html",
+      "updated_at": "2026-07-02T15:50:29.655746+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日沪铅最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897229.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日沪铅最新观点汇总_c26b927fe7.html",
+      "updated_at": "2026-07-02T15:50:29.687509+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日合成橡胶最新观点汇总",
+      "time": "07月02日 15:47",
+      "url": "http://goodsfu.10jqka.com.cn/20260702/c677897227.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日合成橡胶最新观点汇总_06ba208639.html",
+      "updated_at": "2026-07-02T15:50:30.537996+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日纯碱最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897228.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日纯碱最新观点汇总_6a8157ddd5.html",
+      "updated_at": "2026-07-02T15:50:30.554304+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日PTA最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897226.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日PTA最新观点汇总_c3fd593ac6.html",
+      "updated_at": "2026-07-02T15:50:30.596192+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日沪锌最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897225.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日沪锌最新观点汇总_f89547757c.html",
+      "updated_at": "2026-07-02T15:50:30.631065+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日不锈钢最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897224.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日不锈钢最新观点汇总_10f97dfdcb.html",
+      "updated_at": "2026-07-02T15:50:30.701454+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日烧碱最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897223.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日烧碱最新观点汇总_3235385d75.html",
+      "updated_at": "2026-07-02T15:50:31.425625+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日焦炭最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897222.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日焦炭最新观点汇总_7987da7a57.html",
+      "updated_at": "2026-07-02T15:50:31.444034+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日原油最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897221.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日原油最新观点汇总_ff3ec16189.html",
+      "updated_at": "2026-07-02T15:50:31.580954+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日对二甲苯最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897220.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日对二甲苯最新观点汇总_168b207413.html",
+      "updated_at": "2026-07-02T15:50:31.661257+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日沪铝最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897219.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日沪铝最新观点汇总_53ea97b835.html",
+      "updated_at": "2026-07-02T15:50:31.863560+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日白糖最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897218.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日白糖最新观点汇总_511944b365.html",
+      "updated_at": "2026-07-02T15:50:32.306758+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日鸡蛋最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897217.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日鸡蛋最新观点汇总_d56cf047ad.html",
+      "updated_at": "2026-07-02T15:50:32.343093+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日股指期货最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897216.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日股指期货最新观点汇总_900ee0fe24.html",
+      "updated_at": "2026-07-02T15:50:32.479422+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日尿素最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897215.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日尿素最新观点汇总_a861ae8d40.html",
+      "updated_at": "2026-07-02T15:50:32.607233+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日苯乙烯最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897214.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日苯乙烯最新观点汇总_dc1de050f2.html",
+      "updated_at": "2026-07-02T15:50:32.844510+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日碳酸锂最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897213.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日碳酸锂最新观点汇总_622bdcba4d.html",
+      "updated_at": "2026-07-02T15:50:33.216637+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日豆粕最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897212.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日豆粕最新观点汇总_c7d6e862f6.html",
+      "updated_at": "2026-07-02T15:50:33.257766+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日热卷最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897211.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日热卷最新观点汇总_6868694c1a.html",
+      "updated_at": "2026-07-02T15:50:33.406583+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日生猪最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897210.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日生猪最新观点汇总_d673181eac.html",
+      "updated_at": "2026-07-02T15:50:33.497313+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日菜粕最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897209.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日菜粕最新观点汇总_3c90620f69.html",
+      "updated_at": "2026-07-02T15:50:33.767751+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日苹果最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897208.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日苹果最新观点汇总_ea0d8066f3.html",
+      "updated_at": "2026-07-02T15:50:34.084330+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日沪银最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897207.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日沪银最新观点汇总_df28826400.html",
+      "updated_at": "2026-07-02T15:50:34.157647+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日棉花最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897206.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日棉花最新观点汇总_3542fa2205.html",
+      "updated_at": "2026-07-02T15:50:34.269036+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日塑料最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897205.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日塑料最新观点汇总_b16d3841ea.html",
+      "updated_at": "2026-07-02T15:50:34.467833+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日焦煤最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897204.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日焦煤最新观点汇总_eb3b079e45.html",
+      "updated_at": "2026-07-02T15:50:34.698854+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日沪锡最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897203.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日沪锡最新观点汇总_96359e09b6.html",
+      "updated_at": "2026-07-02T15:50:34.966442+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日玉米最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897202.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日玉米最新观点汇总_27aaffd294.html",
+      "updated_at": "2026-07-02T15:50:35.041555+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日沥青最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897201.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日沥青最新观点汇总_6560a1e567.html",
+      "updated_at": "2026-07-02T15:50:35.155546+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日甲醇最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897200.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日甲醇最新观点汇总_2e296212e9.html",
+      "updated_at": "2026-07-02T15:50:35.326943+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日沪金最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897199.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日沪金最新观点汇总_f535b0c86f.html",
+      "updated_at": "2026-07-02T15:50:35.607978+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日工业硅最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897198.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日工业硅最新观点汇总_502b01df25.html",
+      "updated_at": "2026-07-02T15:50:35.930798+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日聚丙烯最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897197.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日聚丙烯最新观点汇总_9da4b88665.html",
+      "updated_at": "2026-07-02T15:50:35.980454+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日氧化铝最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897196.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日氧化铝最新观点汇总_adda539e03.html",
+      "updated_at": "2026-07-02T15:50:36.015556+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日花生最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897195.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日花生最新观点汇总_944913486d.html",
+      "updated_at": "2026-07-02T15:50:36.242532+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日豆一最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897194.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日豆一最新观点汇总_a89a37c7d7.html",
+      "updated_at": "2026-07-02T15:50:36.517577+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日豆二最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897193.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日豆二最新观点汇总_0e62f9453f.html",
+      "updated_at": "2026-07-02T15:50:36.826128+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日LPG最新观点汇总",
+      "time": "07月02日 15:47",
+      "url": "http://goodsfu.10jqka.com.cn/20260702/c677897191.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日LPG最新观点汇总_e06cd6e146.html",
+      "updated_at": "2026-07-02T15:50:36.913847+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日棕榈油最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897192.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日棕榈油最新观点汇总_54440d05d7.html",
+      "updated_at": "2026-07-02T15:50:36.942409+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日玻璃最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897190.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日玻璃最新观点汇总_6ebacf1636.html",
+      "updated_at": "2026-07-02T15:50:37.110552+08:00"
+    },
+    {
+      "title": "【研报观点】7月2日橡胶最新观点汇总",
+      "time": "07月02日 16:12",
+      "url": "http://goodsfu.10jqka.com.cn/20250702/c677897189.shtml",
+      "site_file": "articles/20260702/【研报观点】7月2日橡胶最新观点汇总_f66e976719.html",
+      "updated_at": "2026-07-02T15:50:37.723818+08:00"
+    },
     {
       "title": "【品种策略】玻璃：07月02日多家期货公司晨报观点汇总",
       "time": "07月02日 10:11",
